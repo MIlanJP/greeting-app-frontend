@@ -10,13 +10,36 @@ let req=new Request(`${baseURL}messages`,{
   mode:'no-cors'
 })
 
+// Remove element and update
+const updateELements=(element)=>{
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+}
+}
 
-let submitOnAdd=document.querySelector('.add-submit')
+
+let submitOnAdd=document.querySelector('.update-submit')
 submitOnAdd.addEventListener('click',function(){
+  updateMessage(document.getElementById('updateID').value,document.getElementById('updateMessage').value)
+  getMessages();
+})
+
+// Fetch Operation to create greeting message
+async function updateMessage(ID,updatedMessage){
+  await fetch(`${baseURL}/greetingmessageid/${ID}/${updatedMessage}`,{
+    method: 'PUT'
+  })
+}
+
+
+// Event Listener for Creating Profiles
+let submitOnUpdate=document.querySelector('.add-submit')
+submitOnUpdate.addEventListener('click',function(){
   addMessage(document.getElementById('forFirstName').value,document.getElementById('forSecondName').value)
   getMessages();
 })
 
+// Fetch Operation to create greeting message
 async function addMessage(firstname,secondname){
   await fetch(`${baseURL}${firstname}/${secondname}`,{
     method: 'POST'
@@ -28,7 +51,6 @@ async function addMessage(firstname,secondname){
  */
 let list1=[]
 async function getMessages(){
- 
  await fetch(`${baseURL}messages`,{
     headers:{Accept:"application/json"}
   }).then(res=>{
@@ -37,9 +59,7 @@ async function getMessages(){
   }).then(json=>{
     // console.log(json.data)
     let listOfContent = document.querySelector(".list-of-messages");
-    while (listOfContent.firstChild) {
-      listOfContent.removeChild(listOfContent.firstChild);
-  }
+    updateELements(listOfContent)
     list1=json.data;
     console.log(list1)
     lists();

@@ -68,6 +68,19 @@ document.querySelector(".delete-side-nav").addEventListener("click", () => {
   showForm(".delete-pop-up");
 });
 
+let closePopup=document.querySelectorAll('.close-button');
+closePopup.forEach((closeElement)=>{
+    closeElement.addEventListener('click',()=>{CPOPUP()})
+})
+
+function CPOPUP(){
+    let popuplist = [".add-pop-up", ".update-pop-up", ".delete-pop-up"];
+    popuplist.forEach(function (clsname) {
+        document.querySelector(clsname).style.display = "none";
+    });
+}
+
+
 function showForm(classname) {
   let popuplist = [".add-pop-up", ".update-pop-up", ".delete-pop-up"];
 

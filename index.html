@@ -58,9 +58,15 @@
     <header class="page-header"></header>
     <div class="vertical-nav-bar-container">
       <nav class="nav flex-column v-nav-content">
-        <a class="nav-link crud list-side-nav"  href="#"><i class="far fa-gem"></i>List</a>
-        <a class="nav-link crud add-side-nav" href="#"><i class="fas fa-gem"></i>Add</a>
-        <a class="nav-link crud update-side-nav" href="#"><i class="fas fa-edit"></i>Update</a>
+        <a class="nav-link crud list-side-nav" href="#"
+          ><i class="far fa-gem"></i>List</a
+        >
+        <a class="nav-link crud add-side-nav" href="#"
+          ><i class="fas fa-gem"></i>Add</a
+        >
+        <a class="nav-link crud update-side-nav" href="#"
+          ><i class="fas fa-edit"></i>Update</a
+        >
         <a class="nav-link crud delete-side-nav" href="#"
           ><i class="fas fa-trash-alt"></i>Delete</a
         >
@@ -74,62 +80,68 @@
       <div class="list-of-messages" id="messages-list"></div>
     </div>
 
-   
-      <div class="add-pop-up">
-        <form>
-          <div class="form-group">
-            <label for="forFirstName">First Name:</label>
-            <input
-              type="email"
-              class="form-control"
-              id="forFirstName"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <div class="form-group">
-            <label for="forSecondName">Second Name</label>
-            <input type="text" class="form-control" id="forSecondName" />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-danger close-button">Close</button>
-        </form>
-      </div>
+    <div class="add-pop-up">
+      <form>
+        <div class="form-group">
+          <label for="forFirstName">First Name:</label>
+          <input
+            type="text"
+            class="form-control first-name"
+            id="forFirstName"
+            name="firstname"
+          />
+        </div>
+        <div class="form-group">
+          <label for="forSecondName">Second Name</label>
+          <input
+            type="text"
+            class="form-control second-name"
+            id="forSecondName"
+            name="secondname"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary add-submit">Submit</button>
+        <button type="button" class="btn btn-danger close-button">Close</button>
+      </form>
+    </div>
 
-      <div class="update-pop-up">
-        <form>
-          <div class="form-group">
-            <label for="forFirstName">ID</label>
-            <input
-              type="text"
-              class="form-control"
-              id="forFirstName"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <div class="form-group">
-            <label for="forSecondName">Enter Message</label>
-            <input type="text" class="form-control" id="forSecondName" />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-danger close-button">Close</button>
-        </form>
-      </div>
+    <div class="update-pop-up">
+      <form>
+        <div class="form-group">
+          <label for="forFirstName">ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="forFirstName"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div class="form-group">
+          <label for="forSecondName">Enter Message</label>
+          <input type="text" class="form-control" id="forSecondName" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger close-button">Close</button>
+      </form>
+    </div>
 
-      <div class="delete-pop-up">
-        <form>
-          <div class="form-group">
-            <label for="forFirstName">ID</label>
-            <input
-              type="text"
-              class="form-control"
-              id="forFirstName"
-              aria-describedby="emailHelp"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="button" class="btn btn-danger close-button" onclick="">Close</button>
-        </form>
-      </div>
+    <div class="delete-pop-up">
+      <form>
+        <div class="form-group">
+          <label for="forFirstName">ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="forFirstName"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-danger close-button" onclick="">
+          Close
+        </button>
+      </form>
+    </div>
 
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

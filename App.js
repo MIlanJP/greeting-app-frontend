@@ -1,91 +1,4 @@
-let list = [
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  }, {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  }, {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },{
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },{
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-  {
-    firstname: "Milan",
-    secondname: "Gowda",
-    message: "Welcome to Node JS Milan Gowda",
-  },
-];
+
 let baseURL="http://localhost:3000/api/greeting/"
 
 let h=new Headers();
@@ -96,6 +9,23 @@ let req=new Request(`${baseURL}messages`,{
   headers:h,
   mode:'no-cors'
 })
+
+
+let submitOnAdd=document.querySelector('.add-submit')
+submitOnAdd.addEventListener('click',function(){
+  addMessage(document.getElementById('forFirstName').value,document.getElementById('forSecondName').value)
+  getMessages();
+})
+
+async function addMessage(firstname,secondname){
+  await fetch(`${baseURL}${firstname}/${secondname}`,{
+    method: 'POST'
+  })
+}
+
+/**
+ * Function to get all the messages from fetch
+ */
 let list1=[]
 async function getMessages(){
  
@@ -106,6 +36,10 @@ async function getMessages(){
     return res.json();
   }).then(json=>{
     // console.log(json.data)
+    let listOfContent = document.querySelector(".list-of-messages");
+    while (listOfContent.firstChild) {
+      listOfContent.removeChild(listOfContent.firstChild);
+  }
     list1=json.data;
     console.log(list1)
     lists();

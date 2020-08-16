@@ -125,18 +125,28 @@ let box = document.createElement("div");
 list1.forEach((user) => {
   let messageContent = document.createElement("div");
   messageContent.className = "message-content-box";
-  let firstname = document.createElement("div");
-  firstname.className = "firstname-div";
-  firstname.innerText = user.firstname;
-  let secondname = document.createElement("div");
-  secondname.className = "secondname-div";
-  secondname.innerText = user.secondname;
+  let ObjectID=document.createElement("div");
+  ObjectID.className="ObjectID-div";
+  ObjectID.innerText = "(ObjectId:) "+user._id;
+  let name;
+  if(typeof user.firstname!=="undefined"&& typeof user.lastname!=="undefined"){
+    name= user.firstname+" "+user.lastname;
+  }else if(typeof user.firstname==="undefined"){
+      name=user.lastname
+  }else{
+    name=user.firstname
+  }
+  let userName = document.createElement("div");
+  userName.className = "Name-div";
+  userName.innerText = "Name : "+name ;
   let message = document.createElement("div");
   message.className = "message-div";
-  message.innerText = user.message;
-  messageContent.appendChild(firstname);
-  messageContent.appendChild(secondname);
+  message.innerText = user.message+"(Greeting)";
+  messageContent.appendChild(ObjectID);
   messageContent.appendChild(message);
+  messageContent.appendChild(userName);
+ 
+
   listOfContent.appendChild(messageContent);
 });
 }

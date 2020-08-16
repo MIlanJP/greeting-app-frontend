@@ -28,14 +28,101 @@ let list = [
     firstname: "Milan",
     secondname: "Gowda",
     message: "Welcome to Node JS Milan Gowda",
+  }, {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  }, {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },{
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },{
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
+  },
+  {
+    firstname: "Milan",
+    secondname: "Gowda",
+    message: "Welcome to Node JS Milan Gowda",
   },
 ];
+let baseURL="http://localhost:3000/api/greeting/"
 
+let h=new Headers();
+h.append("Accept",'application/json');
+
+let req=new Request(`${baseURL}messages`,{
+  method:"GET",
+  headers:h,
+  mode:'no-cors'
+})
+let list1=[]
+async function getMessages(){
+ 
+ await fetch(`${baseURL}messages`,{
+    headers:{Accept:"application/json"}
+  }).then(res=>{
+    if(!res.statusText){throw res}
+    return res.json();
+  }).then(json=>{
+    // console.log(json.data)
+    list1=json.data;
+    console.log(list1)
+    lists();
+  }).catch(err=>{
+    console.log(err);
+    console.log("Error fetching ")
+  })
+}
+
+getMessages();
+
+function lists(){
 let listOfContent = document.querySelector(".list-of-messages");
 // console.log(listOfContent);
 let box = document.createElement("div");
 
-list.forEach((user) => {
+list1.forEach((user) => {
   let messageContent = document.createElement("div");
   messageContent.className = "message-content-box";
   let firstname = document.createElement("div");
@@ -52,11 +139,14 @@ list.forEach((user) => {
   messageContent.appendChild(message);
   listOfContent.appendChild(messageContent);
 });
+}
 
 // listOfContent.appendChild(box)
 // let popup= document.querySelector('.delete-pop-up')
 // popup.style.display=''
 // console.log(popup.style.display,"printing display")
+
+const listnav= document.querySelector('.list-side-nav');
 
 document.querySelector(".add-side-nav").addEventListener("click", () => {
   showForm(".add-pop-up");
@@ -87,12 +177,10 @@ function showForm(classname) {
   popuplist.forEach(function (clsname) {
     if (clsname !== classname) {
       document.querySelector(clsname).style.display = "none";
-      console.log("Executed")
     }
   });
   let popup = document.querySelector(classname);
   let displayStatus = popup.style.display;
-  console.log(displayStatus)
   if (displayStatus !== "none" || displayStatus !== "") {
     popup.style.display = "none";
   } if(displayStatus === "none"|| displayStatus === "") {
@@ -100,7 +188,3 @@ function showForm(classname) {
   }
 }
 
-// function popup(classname){
-//    let popup= document.querySelector(classname)
-
-// }

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 
+
+
 .horizontal-nav-bar {
   /* float: right; */
 
@@ -104,19 +106,26 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
   width: 84.8vw;
 }
 .main-container h1 {
-  position: relative;
-  left: 5%;
+    height:50px;
+ position: relative;
+padding-left: 40px;
   top: 15px;
   font-size: 1.5rem;
 }
 
 .list-of-messages {
+    box-shadow: 0px 0px 5px 0px black;
+    position: relative;
+    top:10px;
+    behavior:scroll;
+    height: 80vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
   flex-basis: 33.333333%;
   font-family: 'Roboto', sans-serif;
+  overflow: scroll;
 }
 
 .message-content-box {
@@ -136,28 +145,30 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
     padding: 30px;;
     position:absolute;
    display:none;
-   width: 500px;
+   width: 80vw;
    height: 500px;
     left: 200px;
     top:50px;
+    padding:50px;
     z-index: 10;
     border: 1px solid black;
     box-shadow: 0px 0px 100px 100px black;
     z-index: 10;
-    background-color: blue;
-    border-radius: 20px;;
-    transition:1s;
+    background-color: rgb(0, 165, 177);
+    border-radius: 20px;
 }
+
 
  .update-pop-up{
     transition:1s;
     padding: 30px;;
     position:absolute;
     display:none;
-   width: 500px;
+    width: 80vw;
    height: 500px;
     left: 200px;
     top:50px;
+    padding:50px;
     z-index: 10;
     border: 1px solid black;
     box-shadow: 0px 0px 100px 100px black;
@@ -171,11 +182,12 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
     padding: 30px;;
     position:absolute;
     display:none;
-   width: 500px;
+    width: 80vw;
    height: 500px;
     left: 200px;
     top:50px;
     z-index: 10;
+    padding:50px;
     border: 1px solid black;
     box-shadow: 0px 0px 100px 100px black;
     z-index: 10;

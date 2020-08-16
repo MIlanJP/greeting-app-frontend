@@ -16,27 +16,46 @@ const updateELements=(element)=>{
     element.removeChild(element.firstChild);
 }
 }
-
-
-let submitOnAdd=document.querySelector('.update-submit')
-submitOnAdd.addEventListener('click',function(){
-  updateMessage(document.getElementById('updateID').value,document.getElementById('updateMessage').value)
-  getMessages();
+// Event Listener to delete the Greeting message
+let deleteOnSubmit=document.querySelector('.delete-submit')
+deleteOnSubmit.addEventListener('click', async function(){
+  await  deleteMessage(document.getElementById('deleteID').value)
+   getMessages();
+ document.querySelector(".delete-pop-up").style.display='none'
 })
 
-// Fetch Operation to create greeting message
-async function updateMessage(ID,updatedMessage){
-  await fetch(`${baseURL}/greetingmessageid/${ID}/${updatedMessage}`,{
+// Fetch Operation to delete greeting message
+async function deleteMessage(ID){
+  await fetch(`${baseURL}greetingmessageid/${ID}`,{
+    method: 'DELETE'
+  })
+  document.getElementById('deleteID').value='';
+
+}
+
+// Event Listener to update the Greeting message
+let updateOnSubmit=document.querySelector('.update-submit')
+updateOnSubmit.addEventListener('click',async function(){
+  await updateMessage(document.getElementById('updateID').value,document.getElementById('updateMessage').value)
+  getMessages();
+ document.querySelector(".update-pop-up").style.display='none'
+})
+
+// Fetch Operation to update greeting message
+async function updateMessage(ID,updateMessage){
+  await fetch(`${baseURL}greetingmessageid/${ID}/${updateMessage}`,{
     method: 'PUT'
   })
+  document.getElementById('updateID').value='';
+  document.getElementById('updateMessage').value='';
 }
 
 
 // Event Listener for Creating Profiles
-let submitOnUpdate=document.querySelector('.add-submit')
-submitOnUpdate.addEventListener('click',function(){
-  addMessage(document.getElementById('forFirstName').value,document.getElementById('forSecondName').value)
-  getMessages();
+let submitOnAdd=document.querySelector('.add-submit')
+submitOnAdd.addEventListener('click', async function(){
+ await  addMessage(document.getElementById('forFirstName').value,document.getElementById('forSecondName').value)
+  await getMessages();
 })
 
 // Fetch Operation to create greeting message

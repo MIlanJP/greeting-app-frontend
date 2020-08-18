@@ -1,16 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
+body{
+  height:100vh;
+}
 
+/* body::-webkit-scrollbar{
+  display:none;
 
+} */
+
+.container {
+position:relative;
+left:187px;
+width:calc(80vw - 200px);
+}
 
 .horizontal-nav-bar {
   /* float: right; */
-
+  box-shadow: 0px 0px 10px 0px black;
   position: relative;
-  /* left:5vw; */
+  left:187px;
+  float: auto;
   height: 50px;
-  left: 5vw;
-  width: 85vw;
+  width: calc(100% - 188px);
 }
 
 .nav-bar-content {
@@ -40,18 +52,17 @@ i {
   padding-right: 5px;
 }
 
-select.nav-bar-content.select-tools {
+.select-tools {
   height: 30px;
   border: none;
   outline: none;
   background-color: #f8f9fa;
   width: 50px;
-  -moz-appearance: none; /* Firefox */
   -webkit-appearance: none; /* Safari and Chrome */
   appearance: none;
 }
 
-select.nav-bar-content.select-tools:after {
+.select-tools:after {
   content: "";
   font-family: FontAwesome;
   color: #000;
@@ -63,30 +74,42 @@ a:hover {
   text-decoration: none;
 }
 
-button.btn.btn-outline-primary.nav-bar-content {
+.nav-bar-content {
   height: 34px;
   outline: none;
   border: none;
   font-size: 0.8rem;
 }
-button.btn.btn-primary.nav-bar-content {
+.nav-bar-heading button {
   height: 30px;
   border-radius: 34px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
-  box-shadow: 0px 0px 10px 0px black;
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
 
-.vertical-nav-bar-container {
+.nav-bar-heading {
   position: relative;
-  top: -52px;
+  /* left: 15%; */
+  font-size: 0.9rem;
+}
+
+.side-nav-bar-layout {
+  position: relative;
+  top:-10%;
+  width: 187px;
   height: 100vh;
-  width: 13.5vw;
-  border: solid 1px;
-  box-shadow: 0px 0px 10px 0px black;
-  z-index: 1;
+  z-index: 2;
+  float: left;
+  background:url('./Assets/pexels-stephan-seeber-1101234.jpg');
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .v-nav-content {
@@ -99,118 +122,233 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
 }
 
 .main-container {
-  position: relative;
-  left: 14vw;
-  top: -100vh;
-  height: 91.8vh;
-  width: 84.8vw;
+    position: relative;
+    height: 85vh;
+    width: 85vw;
+    top: 51px;
+    left: 187px;
 }
+
 .main-container h1 {
-    height:50px;
- position: relative;
-padding-left: 40px;
-  top: 15px;
-  font-size: 1.5rem;
+  position: relative;
+    font-size: 1.5rem;
+    left:-8%;
 }
 
 .list-of-messages {
-    box-shadow: 0px 0px 5px 0px black;
-    position: relative;
-    top:10px;
-    behavior:scroll;
-    height: 80vh;
+
+  padding-top: 15px;
+  position: relative;
+  left:-10%;
+  height: 75vh;
+  float: left;
   display: flex;
+  width: 76%;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
   flex-basis: 33.333333%;
   font-family: 'Roboto', sans-serif;
   overflow: scroll;
 }
 
+
+.list-of-messages::-webkit-scrollbar{
+  display:none;
+}
+
+.h-nav-bar {
+  position: relative;
+  left: 33%;
+}
+
 .message-content-box {
     display: flex;
     word-wrap: break-word;
     flex-direction: column;
+    justify-content: space-evenly;
   border: 1px solid black;
   box-shadow: 0px 0px 8px 0px rgba(107, 95, 95, 0.733);
   font-family: 'Roboto', sans-serif;
   border: none;
   outline: none;
-  margin: 15px;;
-  height: 150px;
-  width: 30%;
-  padding: 15px;
-  padding-top:30px;
-  font-size:1rem;
-  font-weight: bold;
+  /* margin: 3px;; */
+  padding-left:15px ;
+  margin-right: 10px;;
+  height: 125px;
+  width:250px;
+  margin-bottom: 15px;
+  font-size:.8rem;
+  font-weight: 500;
+  transition:2s;
+  /* line-height:1rem; */
+}
+
+.message-div{
+  position: relative;
+  font-weight: 800;
+  top:-10px;
   line-height:1.5rem;
 }
 
+.Name-div{
+  font-weight: 800;
+  position: relative;
+  top:-20px;
+}
+
+#ObjectID{
+  position: relative;
+  font-size: .8rem;
+  font-weight: 50;
+  left:-10px;
+  line-height:1rem;
+}
+
+
+#pop-ups{
+  display:none;
+  width:calc(100vw - 0px);
+  height:100vh;
+  position: fixed;
+  top:0px;
+  left:0px;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.507);
+}
 
 .add-pop-up{
-    padding: 30px;;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top:15px;
     position:absolute;
    display:none;
-   width: 80vw;
-   height: 500px;
-    left: 200px;
-    top:50px;
-    padding:50px;
+   width: 500px;
+   height: 300px;
+    left: calc(50vw - 250px);
+    top:calc(50vh - 150px);
     z-index: 10;
-    border: 1px solid black;
-    box-shadow: 0px 0px 100px 100px black;
     z-index: 10;
-    background-color: rgb(0, 165, 177);
+    background-color: rgba(71, 255, 215, 0.842);
     border-radius: 20px;
 }
 
 
+.first-name{
+  width: 100%;
+}
+
+
+
  .update-pop-up{
-    transition:1s;
     padding: 30px;;
     position:absolute;
     display:none;
-    width: 80vw;
-   height: 500px;
-    left: 200px;
-    top:50px;
+    width: 500px;
+   height: 300px;
+    left: calc(50vw - 250px);
+    top:calc(50vh - 150px );
     padding:50px;
     z-index: 10;
-    border: 1px solid black;
-    box-shadow: 0px 0px 100px 100px black;
     z-index: 10;
-    background-color: rgba(1, 248, 174, 0.938);
+    background-color: rgba(247, 250, 88, 0.897);
     border-radius: 20px;;
+}
+
+.add-name-banner{
+  position: relative;
+  color: rgba(58, 44, 255, 0.794);
+  font-size: 1.5rem;
 }
 
 .delete-pop-up{
-    transition:1s;
     padding: 30px;;
     position:absolute;
     display:none;
-    width: 80vw;
-   height: 500px;
-    left: 200px;
-    top:50px;
+    width: 500px;
+    height: 200px;
+    left: calc(50vw - 250px);
+    top:calc( 60vh - 200px);
     z-index: 10;
     padding:50px;
-    border: 1px solid black;
-    box-shadow: 0px 0px 100px 100px black;
     z-index: 10;
-    background-color: rgba(1, 248, 174, 0.938);
+    background-color: rgba(255, 92, 92, 0.911);
     border-radius: 20px;;
-}
-#forFirstName{
-    width:50%;
+    transition:display 1s;
 }
 
-#forSecondName{
-    width:50%;
-}
 
 .span{
   padding-left:3% ;
 font-size:.8rem;
 font-weight: 200;
+}
+/* 
+@media screen and (max-width:1362px) and (min-width: 768px){
+.h-nav-bar{
+  position: absolute;
+  left: 55%;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.horizontal-nav-bar {
+width: 100vw;
+}
+
+.nav-bar-heading{
+
+}
+
+} */
+
+@media screen and (max-width:1000px){
+  .list-of-messages{
+    position: relative;
+    left:10vw;
+  }
+}
+
+#snackbar {
+  font-size:1.2rem;
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  top: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
 }

@@ -11,16 +11,19 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="styles.css" />
+  
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+  
     <link rel="stylesheet" href="fontawesome-free-5.13.1-web/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div id="snackbar">Hey</div>
     <!--[if lt IE 7]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser. Please
@@ -28,11 +31,12 @@
       </p>
     <![endif]-->
     <!-- MAIN NAV CONTAINER -->
-    <div class="container">
+
       <nav
-        class="navbar navbar-expand-lg navbar-light bg-light horizontal-nav-bar"
-      >
-        <div>Greeting APP</div>
+      class="navbar navbar-fixed  navbar-expand-lg navbar-light bg-light horizontal-nav-bar"
+    >
+      <div class='nav-bar-heading'>Greeting APP</div>
+      <div class="h-nav-bar">
         <a class="nav-bar-content">
           <i class="fas fa-bell"> </i>
           <i class="fas fa-sort-down bell-icon-down"></i>
@@ -53,11 +57,13 @@
         <button class="btn btn-primary nav-bar-content" type="submit">
           Sign up
         </button>
-      </nav>
-    </div>
-    <header class="page-header"></header>
-    <div class="vertical-nav-bar-container">
-      <nav class="nav flex-column v-nav-content">
+      </div>
+
+    </nav>
+  
+
+    <div class="side-nav-bar-layout">
+      <nav class="nav flex-column  v-nav-content">
         <a class="nav-link crud list-side-nav" href="#"
           ><i class="far fa-gem"></i>List</a
         >
@@ -80,24 +86,32 @@
       <div class="list-of-messages" id="messages-list"></div>
     </div>
 
+    <div id="pop-ups">
+
     <div class="add-pop-up">
       <form>
         <div class="form-group">
+
+          <div class="add-name-banner">Add Name</div>
+
           <label for="forFirstName">First Name:</label>
           <input
             type="text"
             class="form-control first-name"
             id="forFirstName"
-            name="firstname"
+            required
+            placeholder="Enter First Name"
+            
           />
         </div>
         <div class="form-group">
           <label for="forSecondName">Second Name</label>
           <input
+          required
             type="text"
             class="form-control second-name"
             id="forSecondName"
-            name="secondname"
+            placeholder="Enter Second Name"
           />
         </div>
         <button type="submit" class="btn btn-primary add-submit">Submit</button>
@@ -110,6 +124,8 @@
         <div class="form-group">
           <label for="forFirstName">ID</label>
           <input
+           required
+           placeholder="Enter ID"
             type="text"
             class="form-control update-id-section"
             id="updateID"
@@ -118,7 +134,9 @@
         </div>
         <div class="form-group">
           <label for="forSecondName">Enter Message</label>
-          <input type="text" class="form-control update-message-section" id="updateMessage" />
+          <input required  
+          placeholder="Enter Message"
+          type="text" class="form-control update-message-section" id="updateMessage" />
         </div>
         <button type="submit" class="btn btn-primary update-submit">Submit</button>
         <button type="button" class="btn btn-danger close-button">Close</button>
@@ -130,6 +148,8 @@
         <div class="form-group delete-message-section">
           <label for="forFirstName">ID</label>
           <input
+          required='true'
+          placeholder="Enter the ID"
             type="text"
             class="form-control"
             id="deleteID"
@@ -142,12 +162,12 @@
         </button>
       </form>
     </div>
-
-    <script
+  </div>
+    <!-- <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
       integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
